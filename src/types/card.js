@@ -9,6 +9,10 @@ export const Card = new GqlObject({
       type: GqlID,
       description: `The Card's ID.`
     },
+    title: {
+      type: GqlString,
+      description: `The Card's Title`
+    },
     rows: {
       type: !disabled && new GqlList(Row),
       description: `Rows from Card tables.`,
@@ -35,8 +39,18 @@ export const Queries = {
       }
     },
     resolve: (parent, { id: cardId }, { card }) => card.load(cardId)
-  }
-}
+  },
+  cards: {
+    type: new GqlList(Card),
+    description: `Gets a list of Cards by their IDs.`,
+    args: {
+      id: {
+        type: new GqlList(new GqlNonNull(GqlID)),
+        description: `The IDs of the Cards to fetch. (Required)`
+      }
+    },
+    resolve: (parent, args, { card }) => card.loadMany(args.id)
+  }}
 
 export const Definition = Card
 
