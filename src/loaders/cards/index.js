@@ -1,0 +1,1 @@
+export { loadCard } from "./loadCard"
