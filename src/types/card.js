@@ -1,3 +1,5 @@
+import { Row } from "./row"
+
 export const Card = new GqlObject({
   name: `Card`,
   description: `A Guru Card Object.`,
@@ -7,9 +9,9 @@ export const Card = new GqlObject({
       type: GqlID,
       description: `The Card's ID.`
     },
-    body: {
-      type: GqlString,
-      description: `Body.`,
+    rows: {
+      type: !disabled && new GqlList(Row),
+      description: `Rows from Card tables.`,
     },
     error: {
       type: GqlString,
