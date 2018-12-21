@@ -1,5 +1,5 @@
-service: guru-graphql
 app: guru-graphql
+service: guru-graphql-server
 tenant: drewgillson
 
 frameworkVersion: ">=1.21.0 <2.0.0"
