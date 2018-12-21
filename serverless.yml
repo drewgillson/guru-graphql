@@ -1,5 +1,5 @@
-service: guru-best-practices
-app: tsmbestpractices
+service: guru-graphql
+app: guru-graphql
 tenant: drewgillson
 
 frameworkVersion: ">=1.21.0 <2.0.0"
